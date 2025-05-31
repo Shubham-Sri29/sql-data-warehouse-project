@@ -1,3 +1,4 @@
+
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME; 
@@ -21,7 +22,7 @@ BEGIN
 			cst_key, 
 			cst_firstname, 
 			cst_lastname, 
-			cst_marital_status, 
+			cst_maritial_status, 
 			cst_gndr,
 			cst_create_date
 		)
@@ -31,10 +32,10 @@ BEGIN
 			TRIM(cst_firstname) AS cst_firstname,
 			TRIM(cst_lastname) AS cst_lastname,
 			CASE 
-				WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
-				WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
+				WHEN UPPER(TRIM(cst_maritial_status)) = 'S' THEN 'Single'
+				WHEN UPPER(TRIM(cst_maritial_status)) = 'M' THEN 'Married'
 				ELSE 'n/a'
-			END AS cst_marital_status, -- Normalize marital status values to readable format
+			END AS cst_maritial_status, -- Normalize marital status values to readable format
 			CASE 
 				WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
 				WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
